@@ -20,16 +20,16 @@ class User(db.Model):
         return False
 
     def get_id(self):
-	try:
-	   return unicode(self.id)  # python 2
-	except NameError:
-           return str(self.id)  # python 3
+        try:
+            return unicode(self.id)  # python 2
+        except NameError:
+            return str(self.id)  # python 3
 
     def __repr__(self):
         return '<User %r>' % (self.nickname)
 		
-	def avatar(self, size):
-		return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
+    def avatar(self, size):
+        return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
 	
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
