@@ -18,8 +18,6 @@ class User(db.Model):
     @property
     def is_anonymous(self):
         return False
-	
-	
 
 	def get_id(self):
 		try:
@@ -33,7 +31,6 @@ class User(db.Model):
 	def avatar(self, size):
 		return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % (md5(self.email.encode('utf-8')).hexdigest(), size)
 	
-
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
